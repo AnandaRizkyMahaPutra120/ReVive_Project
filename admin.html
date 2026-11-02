@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Admin Katalog - ReVive</title>
+    <meta content="Kelola produk dan foto katalog ReVive." name="description">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <header class="top">
+      <a class="logo" href="index.html"><span class="mark">♻</span> ReVive</a>
+      <nav aria-label="Navigasi admin">
+        <a href="index.html">Lihat katalog</a>
+      </nav>
+    </header>
+    <main>
+      <section>
+        <div class="head">
+          <h2>Kelola katalog</h2>
+          <p>Data produk dan foto katalog dikelola langsung melalui database.</p>
+        </div>
+        <p class="storage-notice">
+          Masuk sebagai admin untuk mengunggah foto, menambah produk, atau menghapus produk.
+        </p>
+        <form class="panel admin-login" id="loginAdmin">
+          <h3>Masuk admin</h3>
+          <div class="fg">
+            <label for="passwordAdmin">Password admin</label>
+            <input autocomplete="current-password" id="passwordAdmin" required type="password">
+          </div>
+          <button class="btn" type="submit">Masuk</button>
+          <p class="admin-status" id="statusLogin" role="status" aria-live="polite"></p>
+        </form>
+        <button class="btn admin-logout" hidden id="logoutAdmin" type="button">Keluar admin</button>
+        <div class="admin-layout" hidden id="adminLayout">
+          <form class="panel" id="formAdmin">
+            <h3>Tambah produk</h3>
+            <div class="fg">
+              <label for="fotoAdmin">Foto produk</label>
+              <input accept="image/*" id="fotoAdmin" required type="file">
+              <div id="previewAdmin"><p>Pratinjau foto akan tampil di sini</p></div>
+            </div>
+            <div class="fg">
+              <label for="namaAdmin">Nama produk</label>
+              <input id="namaAdmin" placeholder="Contoh: Meja belajar" required>
+            </div>
+            <div class="row">
+              <div class="fg">
+                <label for="hargaAdmin">Harga (Rp)</label>
+                <input id="hargaAdmin" min="0" placeholder="0 = gratis" required type="number">
+              </div>
+              <div class="fg">
+                <label for="hargaBaruAdmin">Harga baru (Rp)</label>
+                <input id="hargaBaruAdmin" min="0" placeholder="Opsional" type="number">
+              </div>
+            </div>
+            <div class="row">
+              <div class="fg">
+                <label for="kategoriAdmin">Kategori</label>
+                <select id="kategoriAdmin" required>
+                  <option value="">Pilih kategori</option>
+                  <option>Furnitur</option>
+                  <option>Elektronik</option>
+                  <option>Buku</option>
+                  <option>Perlengkapan Kos</option>
+                  <option>Give Away</option>
+                </select>
+              </div>
+              <div class="fg">
+                <label for="kondisiAdmin">Kondisi</label>
+                <select id="kondisiAdmin" required>
+                  <option value="">Pilih kondisi</option>
+                  <option>Sangat Baik</option>
+                  <option>Baik</option>
+                  <option>Cukup Baik</option>
+                </select>
+              </div>
+            </div>
+            <div class="fg">
+              <label for="deskripsiAdmin">Deskripsi</label>
+              <textarea id="deskripsiAdmin" placeholder="Jelaskan kondisi produk" required rows="3"></textarea>
+            </div>
+            <div class="row">
+              <div class="fg">
+                <label for="penjualAdmin">Nama penjual</label>
+                <input id="penjualAdmin" placeholder="Nama penjual" required>
+              </div>
+              <div class="fg">
+                <label for="whatsappAdmin">WhatsApp</label>
+                <input id="whatsappAdmin" pattern="62[0-9]{8,13}" placeholder="6281234567890" required title="Awali dengan 62, tanpa + atau spasi" type="tel">
+              </div>
+            </div>
+            <button class="btn" type="submit">Simpan ke katalog</button>
+            <p class="admin-status" id="statusAdmin" role="status" aria-live="polite"></p>
+          </form>
+          <div class="panel">
+            <div class="admin-list-head">
+              <div>
+                <h3>Produk katalog</h3>
+                <p id="jumlahAdmin"></p>
+              </div>
+            </div>
+            <div class="admin-products" id="daftarAdmin"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div>
+        <a class="logo" href="index.html"><span class="mark">♻</span> ReVive</a>
+        <p>Platform berbagi dan jual beli barang antarmahasiswa.</p>
+      </div>
+      <p class="note"><a href="index.html">Kembali ke katalog</a></p>
+    </footer>
+    <script src="js/catalog-store.js"></script>
+    <script src="js/admin.js"></script>
+  </body>
+</html>

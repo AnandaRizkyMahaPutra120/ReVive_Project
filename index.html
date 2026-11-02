@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>ReVive - Marketplace Barang Bekas Mahasiswa</title>
+    <meta content="Beli, jual, atau beri barang bekas layak pakai antarmahasiswa." name="description">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="progress" id="progress"></div>
+    <header class="top">
+      <a class="logo" href="#beranda"><span class="mark">♻</span> ReVive</a>
+      <nav aria-label="Navigasi utama" id="nav">
+        <a href="#katalog">Katalog</a>
+        <a href="#anggaran">Anggaran</a>
+        <a href="#jual">Jual Barang</a>
+        <a href="#kontak">Kontak</a>
+        <a href="admin.html">Admin</a>
+      </nav>
+      <div class="tools">
+        <button aria-label="Ganti tema" class="icon" id="temaBtn">🌓</button>
+        <button aria-label="Buka menu" class="icon menu" id="menuBtn">☰</button>
+      </div>
+    </header>
+    <main>
+      <section class="hero" id="beranda">
+        <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+        <a class="hint" href="#cara" aria-label="Gulir ke bawah">⌄</a>
+        <div class="hero-text">
+          <p class="pill">Marketplace antarmahasiswa</p>
+          <h1>Barang bekas, <br>nilai baru untuk kosmu.</h1>
+          <p class="lead">
+            Cari meja, kipas, buku, sampai monitor dari sesama mahasiswa. Hemat uang, perpanjang umur barang, kurangi sampah.
+          </p>
+          <form class="hero-search" id="heroCari">
+            <input type="search" id="heroInput" placeholder="Cari meja belajar..." aria-label="Cari barang">
+            <button class="btn" type="submit">Cari</button>
+          </form>
+          <div class="cta">
+            <a class="btn" href="#katalog">Cari barang</a>
+            <a class="btn ghost" href="#jual">Jual barangmu</a>
+          </div>
+          <dl class="stats">
+            <div>
+              <dt>Barang aktif</dt>
+              <dd data-n="0" id="statBarang">0</dd>
+            </div>
+            <div>
+              <dt>Gratis</dt>
+              <dd id="statGratis">0</dd>
+            </div>
+            <div>
+              <dt>Total hemat</dt>
+              <dd id="statHemat">Rp0</dd>
+            </div>
+          </dl>
+        </div>
+        <div aria-hidden="true" class="hero-art">
+          <div class="tag t1">
+            <i></i>
+            <b>🪑 Meja Belajar</b>
+            <span>Rp85.000</span>
+            <small>baru Rp250.000</small>
+          </div>
+          <div class="tag t2">
+            <i></i>
+            <b>💡 Lampu Meja</b>
+            <span>Gratis</span>
+            <small>give away</small>
+          </div>
+          <div class="tag t3">
+            <i></i>
+            <b>📚 Buku Algoritma</b>
+            <span>Rp25.000</span>
+            <small>kondisi sangat baik</small>
+          </div>
+        </div>
+      </section>
+      <div class="marquee" aria-hidden="true">
+        <div class="track"><span>🪑 Furnitur</span><span>💻 Elektronik</span><span>📚 Buku</span><span>🛏️ Perlengkapan Kos</span><span>🎁 Give Away</span><span>♻️ Kurangi sampah</span><span>💸 Hemat uang kos</span><span>🪑 Furnitur</span><span>💻 Elektronik</span><span>📚 Buku</span><span>🛏️ Perlengkapan Kos</span><span>🎁 Give Away</span><span>♻️ Kurangi sampah</span><span>💸 Hemat uang kos</span></div>
+      </div>
+
+      <section id="cara">
+        <div class="head">
+          <h2>Cara kerja ReVive</h2>
+          <p>Tiga langkah dari mencari sampai barang di tanganmu.</p>
+        </div>
+        <ol class="steps">
+          <li class="step"><b>1</b><h3>Cari barang</h3><p>Pakai pencarian, kategori, dan urutan harga untuk menemukan yang pas.</p></li>
+          <li class="step"><b>2</b><h3>Hubungi penjual</h3><p>Buka detail barang, lalu chat penjual lewat WhatsApp dengan satu klik.</p></li>
+          <li class="step"><b>3</b><h3>Ambil dan hemat</h3><p>Sepakati lokasi dan pembayaran, barang pindah tangan, sampah berkurang.</p></li>
+        </ol>
+      </section>
+
+      <section id="katalog">
+        <div class="head">
+          <h2>Temukan nilai di setiap barang</h2>
+          <p>Cari sesuai kebutuhan dan anggaranmu.</p>
+        </div>
+        <div class="search-area">
+          <input aria-label="Cari barang" id="cariBarang" placeholder="Cari meja, buku, kipas..." type="search">
+          <select aria-label="Kategori" id="filterKategori">
+            <option value="Semua">Semua kategori</option>
+            <option>Furnitur</option>
+            <option>Elektronik</option>
+            <option>Buku</option>
+            <option>Perlengkapan Kos</option>
+            <option>Give Away</option>
+          </select>
+          <select aria-label="Urutkan" id="urutHarga">
+            <option value="default">Urutkan harga</option>
+            <option value="termurah">Termurah</option>
+            <option value="termahal">Termahal</option>
+          </select>
+          <button aria-pressed="false" class="chip" id="favFilter">
+            ♡ Favorit
+            <b id="favCount">0</b>
+          </button>
+        </div>
+        <div class="grid" id="daftarBarang"></div>
+      </section>
+      <section class="alt" id="anggaran">
+        <div class="head">
+          <h2>Simulasi anggaran kos</h2>
+          <p>Centang barang yang kamu butuhkan, lihat sisa uangmu.</p>
+        </div>
+        <div class="two">
+          <div class="panel">
+            <label for="budget">Anggaran kamu (Rp)</label>
+            <input id="budget" min="0" type="number" value="500000">
+            <div id="pilihanAnggaran"></div>
+            <div class="bar"><span id="barIsi"></span></div>
+            <div class="total">
+              <p>Total belanja <strong id="totalBelanja">Rp0</strong></p>
+              <p>Sisa anggaran <strong id="sisaAnggaran">Rp0</strong></p>
+              <p id="statusAnggaran" role="status"></p>
+            </div>
+          </div>
+          <div class="panel why">
+            <h3>Kenapa ReVive?</h3>
+            <p><b>💰 Lebih hemat</b> Barang bagus dengan harga ramah kantong mahasiswa.</p>
+            <p><b>♻️ Lebih berkelanjutan</b> Memperpanjang masa pakai barang, mengurangi sampah.</p>
+            <p><b>🤝 Antarmahasiswa</b> Barang berpindah ke orang yang membutuhkan, dekat kampus.</p>
+          </div>
+        </div>
+      </section>
+      <section id="jual">
+        <div class="head">
+          <h2>Pasang barangmu</h2>
+          <p>Jual atau berikan barang yang masih layak pakai.</p>
+        </div>
+        <div class="two">
+          <form class="panel" id="formBarang">
+            <div class="fg">
+              <label for="fotoBarang">Foto barang</label>
+              <input accept="image/*" id="fotoBarang" required="" type="file">
+              <div id="previewFoto">
+                <p>Foto barang akan tampil di sini</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="fg">
+                <label for="namaBarang">Nama barang</label>
+                <input id="namaBarang" placeholder="Contoh: Meja belajar" required="">
+              </div>
+              <div class="fg">
+                <label for="hargaBarang">Harga (Rp)</label>
+                <input id="hargaBarang" min="0" placeholder="0 = gratis" required="" type="number">
+              </div>
+            </div>
+            <div class="row">
+              <div class="fg">
+                <label for="kategoriBarang">Kategori</label>
+                <select id="kategoriBarang" required="">
+                  <option value="">Pilih kategori</option>
+                  <option>Furnitur</option>
+                  <option>Elektronik</option>
+                  <option>Buku</option>
+                  <option>Perlengkapan Kos</option>
+                  <option>Give Away</option>
+                </select>
+              </div>
+              <div class="fg">
+                <label for="kondisiBarang">Kondisi</label>
+                <select id="kondisiBarang" required="">
+                  <option value="">Pilih kondisi</option>
+                  <option>Sangat Baik</option>
+                  <option>Baik</option>
+                  <option>Cukup Baik</option>
+                </select>
+              </div>
+            </div>
+            <div class="fg">
+              <label for="deskripsiBarang">Deskripsi</label>
+              <textarea id="deskripsiBarang" placeholder="Jelaskan kondisi barang" required="" rows="3"></textarea>
+            </div>
+            <div class="row">
+              <div class="fg">
+                <label for="namaPenjual">Nama penjual</label>
+                <input id="namaPenjual" placeholder="Nama kamu" required="">
+              </div>
+              <div class="fg">
+                <label for="whatsappPenjual">WhatsApp</label>
+                <input id="whatsappPenjual" pattern="62[0-9]{8,13}" placeholder="6281234567890" required="" title="Awali dengan 62, tanpa + atau spasi" type="tel">
+              </div>
+            </div>
+            <button class="btn" type="submit">Pasang barang</button>
+          </form>
+          <div class="panel tips">
+            <h3>Tips menjual cepat</h3>
+            <p>📸 Pakai foto yang terang dan jelas.</p>
+            <p>📝 Jelaskan kondisi barang dengan jujur.</p>
+            <p>💵 Tentukan harga yang wajar.</p>
+            <p>🤝 Sepakati pembayaran dan lokasi ambil.</p>
+            <p>🔒 Bagikan kontak hanya jika kamu setuju dihubungi.</p>
+          </div>
+        </div>
+      </section>
+    <section id="faq">
+        <div class="head"><h2>Pertanyaan yang sering muncul</h2></div>
+        <div class="faq">
+          <details><summary>Apakah ReVive gratis dipakai?</summary><p>Ya. Memasang dan mencari barang tidak dikenai biaya.</p></details>
+          <details><summary>Bagaimana cara membayar?</summary><p>Pembayaran disepakati langsung antara pembeli dan penjual, misalnya bayar di tempat.</p></details>
+          <details><summary>Bagaimana kalau barangnya tidak sesuai?</summary><p>Periksa barang saat bertemu. Kalau tidak cocok, kamu boleh membatalkan sebelum membayar.</p></details>
+          <details><summary>Apa itu Give Away?</summary><p>Barang yang diberikan gratis kepada mahasiswa yang membutuhkan.</p></details>
+        </div>
+      </section>
+    </main>
+    <footer id="kontak">
+      <div>
+        <a class="logo" href="#beranda"><span class="mark">♻</span> ReVive</a>
+        <p>Platform berbagi dan jual beli barang antarmahasiswa.</p>
+      </div>
+      <p class="note">Katalog dikelola melalui halaman admin.</p>
+    </footer>
+    <button class="chat-fab" id="chatBtn" aria-label="Buka asisten Reva">💬</button>
+
+    <aside class="chat" id="chatBox" aria-label="Asisten Reva">
+      <div class="chat-head">
+        <b class="avatar">R</b>
+        <div><strong>Reva</strong><small>Asisten ReVive · online</small></div>
+        <button class="icon" id="chatTutup" aria-label="Tutup chat">✕</button>
+      </div>
+      <div class="chat-log" id="chatLog" aria-live="polite"></div>
+      <div class="chat-chips" id="chatChips">
+        <button>Barang gratis</button>
+        <button>Anggaran 300 ribu</button>
+        <button>Cara jual</button>
+        <button>Cari kipas</button>
+      </div>
+      <form class="chat-form" id="chatForm">
+        <input id="chatInput" placeholder="Tanya Reva..." autocomplete="off" aria-label="Pesan">
+        <button class="btn" type="submit">Kirim</button>
+      </form>
+    </aside>
+
+    <button class="up" id="naik" aria-label="Kembali ke atas">↑</button>
+
+    <dialog id="modal">
+      <div id="modalIsi"></div>
+      <button aria-label="Tutup" class="icon x" id="tutup">✕</button>
+    </dialog>
+    <div aria-live="polite" id="toast" role="status"></div>
+    <script src="js/catalog-store.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
